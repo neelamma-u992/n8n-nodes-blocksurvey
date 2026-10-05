@@ -16,7 +16,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/blocksurvey/n8n-nodes-blocksurvey.git"
+		"url": "https://github.com/neelamma-u992/n8n-nodes-blocksurvey.git"
 	},
 	"scripts": {
 		"build": "n8n-node build",
