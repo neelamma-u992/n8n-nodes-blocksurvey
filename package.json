@@ -1,0 +1,55 @@
+{
+	"name": "n8n-nodes-blocksurvey",
+	"version": "0.1.0",
+	"description": "BlockSurvey nodes for n8n: trigger on new survey responses and add or update contacts.",
+	"license": "MIT",
+	"homepage": "https://blocksurvey.io",
+	"keywords": [
+		"n8n-community-node-package",
+		"blocksurvey",
+		"survey",
+		"forms"
+	],
+	"author": {
+		"name": "BlockSurvey",
+		"email": "hello@blocksurvey.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/blocksurvey/n8n-nodes-blocksurvey.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/BlockSurveyOAuth2Api.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/BlockSurvey/BlockSurvey.node.js",
+			"dist/nodes/BlockSurvey/BlockSurveyTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "*",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
