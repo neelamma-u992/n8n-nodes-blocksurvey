@@ -94,7 +94,7 @@ curl -X POST "<Production URL>" -H 'content-type: application/json' \
 cloudflared tunnel --url http://localhost:5678   # prints https://<random>.trycloudflare.com
 ```
 
-Restart n8n with both URLs. `N8N_EDITOR_BASE_URL` keeps sign-in on localhost: without it n8n uses `WEBHOOK_URL`
+Restart n8n with these URLs. `N8N_WEBHOOK_URL` is needed too: recent n8n versions use it (not `WEBHOOK_URL`) for "Listen for test event" URLs, which otherwise stay on localhost. `N8N_EDITOR_BASE_URL` keeps sign-in on localhost: without it n8n uses `WEBHOOK_URL`
 as its own address, the OAuth callback lands on the tunnel host where you are not logged in, and Connect fails
 with "Unauthorized".
 
@@ -103,6 +103,7 @@ N8N_CUSTOM_EXTENSIONS=/path/to/n8n-nodes-blocksurvey \
 N8N_SECURE_COOKIE=false \
 N8N_EDITOR_BASE_URL=http://localhost:5678/ \
 WEBHOOK_URL=https://<random>.trycloudflare.com/ \
+N8N_WEBHOOK_URL=https://<random>.trycloudflare.com/ \
 npx n8n@latest start
 ```
 
